@@ -1,14 +1,12 @@
 #pragma once
 
 #include "stdafx.h"
+#include "Object.h"
 
-class KGameInstance
+class KGameInstance : public KObject
 {
 public:
 	KGameInstance::KGameInstance() = default;
-	virtual void PreTick() = 0;
-	virtual void Tick(float deltaTime) = 0;
-	virtual void PostTick() = 0;
 
 	virtual const std::wstring& GetTitle() const { return Title; }
 

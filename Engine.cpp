@@ -39,7 +39,7 @@ void setCursorPosition(int x, int y)
 	SetConsoleCursorPosition(hOut, coord);
 }
 
-void KEngine::UpdateTitle(float deltaTime, float fps)
+void KEngine::UpdateTitle(const float deltaTime, const float fps)
 {
 	//Move to OS module
 	std::wstring windowTitle;
@@ -95,7 +95,7 @@ int KEngine::Loop()
 	return 0;
 }
 
-void KEngine::BeginScene(float deltaTime, float fps)
+void KEngine::BeginScene(const float deltaTime, const float fps)
 {
 	UpdateTitle(deltaTime, fps);
 	HideCursor();
@@ -109,7 +109,7 @@ void KEngine::BeginScene(float deltaTime, float fps)
 	GameInstance->PreTick();
 }
 
-void KEngine::UpdateScene(float deltaTime, float fps)
+void KEngine::UpdateScene(const float deltaTime, const float fps)
 {
 	if (GameInstance == nullptr)
 	{

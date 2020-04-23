@@ -23,10 +23,10 @@ public:
 	class KRenderer* Renderer = nullptr;
 
 protected:
-	void UpdateTitle(float deltaTime, float fps);
+	void UpdateTitle(const float deltaTime, const float fps);
 	bool Initialize();
-	void BeginScene(float deltaTime, float fps);
-	void UpdateScene(float deltaTime, float fps);
+	void BeginScene(const float deltaTime, const float fps);
+	void UpdateScene(const float deltaTime, const float fps);
 	void EndScene();
 	int Loop();
 	void CleanUp();

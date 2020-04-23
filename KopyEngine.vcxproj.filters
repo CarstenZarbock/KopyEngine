@@ -11,6 +11,12 @@
     <ClCompile Include="Rendering\RenderResources\RenderResource.cpp">
       <Filter>Rendering\RenderResources</Filter>
     </ClCompile>
+    <ClCompile Include="Scene\Scene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Object.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine.h" />
@@ -23,6 +29,13 @@
     <ClInclude Include="Rendering\RenderResources\RenderResource.h">
       <Filter>Rendering\RenderResources</Filter>
     </ClInclude>
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="Scene\Scene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Object.h">
+      <Filter>Core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Core">
@@ -33,6 +46,9 @@
     </Filter>
     <Filter Include="Rendering\RenderResources">
       <UniqueIdentifier>{746e4608-f642-4d29-8084-3f7b324e6e21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{0cad67a4-65c8-4b44-946a-3433adb26f45}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
