@@ -30,3 +30,16 @@
 *.exe
 *.out
 *.app
+
+# Own stuff
+*.user
+*.log
+*.idb
+*.pdb
+*.tlog
+*.lastbuildstate
+*.FileListAbsolute.txt
+
+
+*/Debug/*.*
+/Debug/*.*
