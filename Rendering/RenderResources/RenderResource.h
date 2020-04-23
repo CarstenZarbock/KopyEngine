@@ -1,6 +1,6 @@
 #pragma once
 
-#include "stdfx.h"
+#include "stdafx.h"
 
 struct FDrawBuffer
 {

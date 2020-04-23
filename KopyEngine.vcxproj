@@ -149,15 +149,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Core\GameInstance.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="Rendering\Renderer.cpp" />
     <ClCompile Include="Rendering\RenderResources\RenderResource.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Core\GameInstance.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="Rendering\Renderer.h" />
     <ClInclude Include="Rendering\RenderResources\RenderResource.h" />
-    <ClInclude Include="stdfx.h" />
+    <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

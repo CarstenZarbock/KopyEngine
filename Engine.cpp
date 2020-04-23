@@ -1,9 +1,11 @@
 #pragma once
 
-#include "Engine.h"
 #include "Rendering\Renderer.h"
+#include "Core\GameInstance.h"
 
-bool CEngine::Initialize()
+#include "Engine.h"
+
+bool KEngine::Initialize()
 {
 	begin_time = clock();
 
@@ -14,12 +16,12 @@ bool CEngine::Initialize()
 
 	HideCursor();
 
-	Renderer = new CRenderer();
+	Renderer = new KRenderer();
 
 	return true;
 }
 
-void CEngine::HideCursor()
+void KEngine::HideCursor()
 {
 	HANDLE out = GetStdHandle(STD_OUTPUT_HANDLE);
 
@@ -37,7 +39,7 @@ void setCursorPosition(int x, int y)
 	SetConsoleCursorPosition(hOut, coord);
 }
 
-void CEngine::UpdateTitle(float deltaTime, float fps)
+void KEngine::UpdateTitle(float deltaTime, float fps)
 {
 	//Move to OS module
 	std::wstring windowTitle;
@@ -58,7 +60,7 @@ void CEngine::UpdateTitle(float deltaTime, float fps)
 	SetConsoleTitle(windowTitle.c_str());
 }
 
-int CEngine::Loop()
+int KEngine::Loop()
 {
 	float drawRefresh = 0.f;
 
@@ -93,7 +95,7 @@ int CEngine::Loop()
 	return 0;
 }
 
-void CEngine::BeginScene(float deltaTime, float fps)
+void KEngine::BeginScene(float deltaTime, float fps)
 {
 	UpdateTitle(deltaTime, fps);
 	HideCursor();
@@ -107,7 +109,7 @@ void CEngine::BeginScene(float deltaTime, float fps)
 	GameInstance->PreTick();
 }
 
-void CEngine::UpdateScene(float deltaTime, float fps)
+void KEngine::UpdateScene(float deltaTime, float fps)
 {
 	if (GameInstance == nullptr)
 	{
@@ -117,7 +119,7 @@ void CEngine::UpdateScene(float deltaTime, float fps)
 	GameInstance->Tick(deltaTime);
 }
 
-void CEngine::EndScene()
+void KEngine::EndScene()
 {
 
 	if (GameInstance != nullptr)
@@ -133,7 +135,7 @@ void CEngine::EndScene()
 	f_time = clock();
 }
 
-int CEngine::Main()
+int KEngine::Main()
 {
 	Initialize();
 
@@ -143,7 +145,7 @@ int CEngine::Main()
 	return result;
 }
 
-void CEngine::CleanUp()
+void KEngine::CleanUp()
 {
 	Renderer->CleanUp();
 	delete Renderer;

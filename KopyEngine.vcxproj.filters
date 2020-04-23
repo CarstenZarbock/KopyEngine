@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Engine.cpp" />
+    <ClCompile Include="Core\GameInstance.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Rendering\Renderer.cpp">
+      <Filter>Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="Rendering\RenderResources\RenderResource.cpp">
+      <Filter>Rendering\RenderResources</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Engine.h" />
+    <ClInclude Include="Core\GameInstance.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Rendering\Renderer.h">
+      <Filter>Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="Rendering\RenderResources\RenderResource.h">
+      <Filter>Rendering\RenderResources</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Core">
+      <UniqueIdentifier>{25623446-f54b-4dad-91c4-48789f30c3f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Rendering">
+      <UniqueIdentifier>{0b7db1bf-6712-40b9-8835-27297cf60bff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Rendering\RenderResources">
+      <UniqueIdentifier>{746e4608-f642-4d29-8084-3f7b324e6e21}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
