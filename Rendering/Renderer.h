@@ -1,5 +1,6 @@
 #pragma once
-#include "..\stdfx.h"
+
+#include "stdfx.h"
 
 #define MAX_X 80
 #define MAX_Y 30

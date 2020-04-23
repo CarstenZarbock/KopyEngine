@@ -1,3 +1,5 @@
+#pragma once
+
 #include "Renderer.h"
 #include "Rendering\RenderResources\RenderResource.h"
 
