@@ -7,12 +7,12 @@ static char backBuffer[MAX_X * MAX_Y];
 static char frontBuffer[MAX_X * MAX_Y];
 static char gBuffer[(MAX_X * MAX_Y) + MAX_Y];
 
-void CRenderer::CleanUp()
+void KRenderer::CleanUp()
 {
 
 }
 
-void CRenderer::Update()
+void KRenderer::Update()
 {
 	for (CRenderResource* res : Resources)
 	{
@@ -21,7 +21,7 @@ void CRenderer::Update()
 	}   
 }
 
-void CRenderer::Draw()
+void KRenderer::Draw()
 {
 	std::memcpy((char*)frontBuffer, (char const*)backBuffer, MAX_X* MAX_Y);
 	std::memset((char*)backBuffer, 0, MAX_X* MAX_Y);
@@ -46,12 +46,12 @@ void CRenderer::Draw()
 	std::cout.flush();
 }
 
-void CRenderer::RegisterComponent(CRenderResource* resource)
+void KRenderer::RegisterComponent(CRenderResource* resource)
 {
 	Resources.push_back(resource);
 }
 
-void CRenderer::UnRegisterComponent(CRenderResource* resource)
+void KRenderer::UnRegisterComponent(CRenderResource* resource)
 {
 	for (int idx = 0; idx < Resources.size(); ++idx)
 	{
@@ -63,7 +63,7 @@ void CRenderer::UnRegisterComponent(CRenderResource* resource)
 	}
 }
 
-void CRenderer::DrawToBackbuffer(FDrawBuffer& buffer, int x, int y)
+void KRenderer::DrawToBackbuffer(FDrawBuffer& buffer, int x, int y)
 {
 	size_t curOffset = 0;
 	for (int curBuffer = 0; curBuffer < buffer.BufferNum; ++curBuffer)

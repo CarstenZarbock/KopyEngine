@@ -1,16 +1,16 @@
 #pragma once
 
-#include "stdfx.h"
+#include "stdafx.h"
 
 #define MAX_X 80
 #define MAX_Y 30
 
 struct FDrawBuffer;
 
-class CRenderer
+class KRenderer
 {
 public:
-	CRenderer::CRenderer() = default;
+	KRenderer::KRenderer() = default;
 	void CleanUp();
 	void Update();
 	void Draw();

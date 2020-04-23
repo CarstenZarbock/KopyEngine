@@ -1,24 +1,13 @@
 #pragma once
 
-#include "stdfx.h"
+#include "stdafx.h"
 
-class CGameInstance
-{
-public:
-	CGameInstance::CGameInstance() = default;
-	virtual void PreTick() = 0;
-	virtual void Tick(float deltaTime) = 0;
-	virtual void PostTick() = 0;
-
-	virtual const std::wstring& GetTitle() const = 0;
-};
-
-class CEngine
+class KEngine
 {
 
 public:
-	CEngine::CEngine() = default;
-	CEngine::CEngine(CGameInstance* gameInstance)
+	KEngine::KEngine() = default;
+	KEngine::KEngine(class KGameInstance* gameInstance)
 	{
 		GameInstance = gameInstance;
 	}
@@ -29,9 +18,9 @@ protected:
 	clock_t begin_time;
 	clock_t f_time;
 
-	CGameInstance* GameInstance = nullptr;
+	class KGameInstance* GameInstance = nullptr;
 public:
-	class CRenderer* Renderer = nullptr;
+	class KRenderer* Renderer = nullptr;
 
 protected:
 	void UpdateTitle(float deltaTime, float fps);
