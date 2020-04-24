@@ -17,6 +17,9 @@ void KEngine::PreInitialize()
 
 bool KEngine::Initialize()
 {
+	//TEMP - REMOVE #TODO
+	system("CLS");
+	//------
 	begin_time = clock();
 
 	RECT ConsoleRect;
