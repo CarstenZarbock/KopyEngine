@@ -20,15 +20,20 @@ protected:
 
 	class KGameInstance* GameInstance = nullptr;
 public:
-	class KRenderer* Renderer = nullptr;
+	void PreInitialize();
+	class KRenderer& GetRenderer() { return *Renderer; }
 
 protected:
 	void UpdateTitle(const float deltaTime, const float fps);
+	
 	bool Initialize();
+	
 	void BeginScene(const float deltaTime, const float fps);
 	void UpdateScene(const float deltaTime, const float fps);
 	void EndScene();
 	int Loop();
 	void CleanUp();
 	void HideCursor();
+
+	class KRenderer* Renderer = nullptr;
 };

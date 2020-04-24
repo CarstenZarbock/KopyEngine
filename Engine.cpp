@@ -5,6 +5,16 @@
 
 #include "Engine.h"
 
+void KEngine::PreInitialize()
+{
+	Renderer = new KRenderer();
+
+	if (GameInstance != nullptr)
+	{
+		GameInstance->InitializeDefaultScene(this);
+	}
+}
+
 bool KEngine::Initialize()
 {
 	begin_time = clock();
@@ -12,11 +22,9 @@ bool KEngine::Initialize()
 	RECT ConsoleRect;
 	HWND console = GetConsoleWindow();
 	GetWindowRect(console, &ConsoleRect);
-	MoveWindow(console, ConsoleRect.left, ConsoleRect.top, 680, 535, TRUE);
+	MoveWindow(console, ConsoleRect.left, ConsoleRect.top, 800, 600, TRUE);
 
 	HideCursor();
-
-	Renderer = new KRenderer();
 
 	return true;
 }

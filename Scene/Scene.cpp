@@ -74,3 +74,13 @@ void KScene::OnDestroy()
 		Objects.erase(Objects.begin() + objectIndex);
 	}
 }
+
+void KScene::Load()
+{
+
+}
+
+void KScene::Unload()
+{
+	
+}

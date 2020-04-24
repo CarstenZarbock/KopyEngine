@@ -12,6 +12,10 @@ public:
 	virtual void Tick(const float deltaTime) override;
 	virtual void PostTick() override;
 	virtual void OnDestroy() override;
+	
+	
+	virtual void Load();
+	virtual void Unload();
 
 	void NewObject(class KObject* object);
 	void DestroyObject(class KObject* object);

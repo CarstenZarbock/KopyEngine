@@ -9,7 +9,16 @@ public:
 	KGameInstance::KGameInstance() = default;
 
 	virtual const std::wstring& GetTitle() const { return Title; }
+	virtual void InitializeDefaultScene(class KEngine* engine);
+
+	bool SwitchScene(class KScene& scene, bool keepAlive = false);
+	bool RestoreScene(class KScene& scene);
 
 protected:
+	bool LoadScene(class KScene& scene);
+	bool UnloadScene();
+
 	std::wstring Title = L"";
+
+	class KScene* Scene = nullptr;
 };

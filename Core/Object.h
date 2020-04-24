@@ -15,6 +15,8 @@ public:
 	const bool IsMarkedForDestroy() const { return bMarkedForDestroy; }
 	void SetMarkedForDestroy() { bMarkedForDestroy = true; }
 
-private:
+protected:
 	bool bMarkedForDestroy = false;
+
+	class KEngine* Engine = nullptr;
 };
