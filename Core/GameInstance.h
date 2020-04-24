@@ -10,6 +10,7 @@ public:
 
 	virtual const std::wstring& GetTitle() const { return Title; }
 	virtual void InitializeDefaultScene(class KEngine* engine);
+	virtual void Tick(const float deltaTime);
 
 	bool SwitchScene(class KScene& scene, bool keepAlive = false);
 	bool RestoreScene(class KScene& scene);

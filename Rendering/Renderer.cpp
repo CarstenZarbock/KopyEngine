@@ -14,7 +14,7 @@ void KRenderer::CleanUp()
 
 void KRenderer::Update()
 {
-	for (CRenderResource* res : Resources)
+	for (KRenderResource* res : Resources)
 	{
 		FDrawBuffer& buffer = res->GetDrawBuffer();
 		DrawToBackbuffer(buffer, static_cast<int>(res->GetX()), static_cast<int>(res->GetY()));
@@ -46,12 +46,12 @@ void KRenderer::Draw()
 	std::cout.flush();
 }
 
-void KRenderer::RegisterComponent(CRenderResource* resource)
+void KRenderer::RegisterComponent(KRenderResource* resource)
 {
 	Resources.push_back(resource);
 }
 
-void KRenderer::UnRegisterComponent(CRenderResource* resource)
+void KRenderer::UnRegisterComponent(KRenderResource* resource)
 {
 	for (int idx = 0; idx < Resources.size(); ++idx)
 	{

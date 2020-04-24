@@ -152,6 +152,9 @@
     <ClCompile Include="Core\GameInstance.cpp" />
     <ClCompile Include="Core\Object.cpp" />
     <ClCompile Include="Engine.cpp" />
+    <ClCompile Include="Interface\Interface.cpp" />
+    <ClCompile Include="Objects\GameObject.cpp" />
+    <ClCompile Include="Player\PlayerController.cpp" />
     <ClCompile Include="Rendering\Renderer.cpp" />
     <ClCompile Include="Rendering\RenderResources\RenderResource.cpp" />
     <ClCompile Include="Scene\Scene.cpp" />
@@ -160,6 +163,9 @@
     <ClInclude Include="Core\GameInstance.h" />
     <ClInclude Include="Core\Object.h" />
     <ClInclude Include="Engine.h" />
+    <ClInclude Include="Interface\Interface.h" />
+    <ClInclude Include="Objects\GameObject.h" />
+    <ClInclude Include="Player\PlayerController.h" />
     <ClInclude Include="Rendering\Renderer.h" />
     <ClInclude Include="Rendering\RenderResources\RenderResource.h" />
     <ClInclude Include="Scene\Scene.h" />

@@ -5,7 +5,17 @@
 class KObject
 {
 public:
-	KObject::KObject() = default;
+	KObject::KObject()
+	{
+		KObject(nullptr);
+	}
+
+	KObject::KObject(class KEngine* engine)
+	{
+		Engine = engine;
+	}
+
+	virtual void Initialize() { };
 	virtual void PreTick() { };
 	virtual void Tick(const float deltaTime) { };
 	virtual void PostTick() { };

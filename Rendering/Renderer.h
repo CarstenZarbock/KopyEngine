@@ -15,13 +15,13 @@ public:
 	void Update();
 	void Draw();
 
-	void RegisterComponent(class CRenderResource* resource);
-	void UnRegisterComponent(class CRenderResource* resource);
+	void RegisterComponent(class KRenderResource* resource);
+	void UnRegisterComponent(class KRenderResource* resource);
 
 protected:
 	void DrawToBackbuffer(FDrawBuffer& buffer, int x, int y);
 
-	std::vector<class CRenderResource*> Resources;
+	std::vector<class KRenderResource*> Resources;
 
 };
 

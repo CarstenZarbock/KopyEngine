@@ -17,6 +17,15 @@
     <ClCompile Include="Core\Object.cpp">
       <Filter>Core</Filter>
     </ClCompile>
+    <ClCompile Include="Objects\GameObject.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Player\PlayerController.cpp">
+      <Filter>Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Interface\Interface.cpp">
+      <Filter>Interface</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine.h" />
@@ -36,6 +45,15 @@
     <ClInclude Include="Core\Object.h">
       <Filter>Core</Filter>
     </ClInclude>
+    <ClInclude Include="Objects\GameObject.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Player\PlayerController.h">
+      <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Interface\Interface.h">
+      <Filter>Interface</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Core">
@@ -49,6 +67,15 @@
     </Filter>
     <Filter Include="Scene">
       <UniqueIdentifier>{0cad67a4-65c8-4b44-946a-3433adb26f45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects">
+      <UniqueIdentifier>{db8e232a-5703-49cd-a5b7-d19cf8b9298f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Player">
+      <UniqueIdentifier>{86f03c79-d7a8-41eb-a4cc-55af38c6dad2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface">
+      <UniqueIdentifier>{90b4c8af-8303-4e66-938e-2898a683253b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
