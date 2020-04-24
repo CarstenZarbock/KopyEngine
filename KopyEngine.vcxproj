@@ -152,6 +152,7 @@
     <ClCompile Include="Core\GameInstance.cpp" />
     <ClCompile Include="Core\Object.cpp" />
     <ClCompile Include="Engine.cpp" />
+    <ClCompile Include="Objects\GameObject.cpp" />
     <ClCompile Include="Rendering\Renderer.cpp" />
     <ClCompile Include="Rendering\RenderResources\RenderResource.cpp" />
     <ClCompile Include="Scene\Scene.cpp" />
@@ -160,6 +161,7 @@
     <ClInclude Include="Core\GameInstance.h" />
     <ClInclude Include="Core\Object.h" />
     <ClInclude Include="Engine.h" />
+    <ClInclude Include="Objects\GameObject.h" />
     <ClInclude Include="Rendering\Renderer.h" />
     <ClInclude Include="Rendering\RenderResources\RenderResource.h" />
     <ClInclude Include="Scene\Scene.h" />

@@ -61,11 +61,11 @@ public:
 	size_t* BufferSizes = nullptr;
 };
 
-class CRenderResource
+class KRenderResource
 {
 public:
-	CRenderResource() = default;
-	~CRenderResource()
+	KRenderResource() = default;
+	~KRenderResource()
 	{
 		delete Buffer;
 	}
@@ -82,11 +82,11 @@ protected:
 	FDrawBuffer* Buffer = nullptr;
 };
 
-class CRenderResourceText : public CRenderResource
+class KRenderResourceText : public KRenderResource
 {
 public:
-	CRenderResourceText::CRenderResourceText() = default;
-	CRenderResourceText::CRenderResourceText(std::string& text, float x, float y)
+	KRenderResourceText::KRenderResourceText() = default;
+	KRenderResourceText::KRenderResourceText(std::string& text, float x, float y)
 	{
 		Buffer = new FDrawBuffer(text);
 		X = x;
@@ -94,11 +94,11 @@ public:
 	}
 };
 
-class CRenderResourceImage : public CRenderResource
+class KRenderResourceImage : public KRenderResource
 {
 public:
-	CRenderResourceImage::CRenderResourceImage() = default;
-	CRenderResourceImage::CRenderResourceImage(std::vector<std::string> vecBuffer, float x, float y)
+	KRenderResourceImage::KRenderResourceImage() = default;
+	KRenderResourceImage::KRenderResourceImage(std::vector<std::string> vecBuffer, float x, float y)
 	{
 		Buffer = new FDrawBuffer(vecBuffer);
 		X = x;

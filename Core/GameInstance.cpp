@@ -10,6 +10,14 @@ void KGameInstance::InitializeDefaultScene(KEngine* engine)
 	Scene->Load();
 }
 
+void KGameInstance::Tick(const float deltaTime)
+{
+	if (Scene != nullptr)
+	{
+		Scene->Tick(deltaTime);
+	}
+}
+
 bool KGameInstance::SwitchScene(KScene& scene, bool keepAlive /*= false*/)
 {
 	if (keepAlive == false)
