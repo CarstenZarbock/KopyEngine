@@ -1,17 +1,24 @@
 #pragma once
 
 #include "stdafx.h"
+#include "Object.h"
 
-class KGameInstance
+class KGameInstance : public KObject
 {
 public:
 	KGameInstance::KGameInstance() = default;
-	virtual void PreTick() = 0;
-	virtual void Tick(float deltaTime) = 0;
-	virtual void PostTick() = 0;
 
 	virtual const std::wstring& GetTitle() const { return Title; }
+	virtual void InitializeDefaultScene(class KEngine* engine);
+
+	bool SwitchScene(class KScene& scene, bool keepAlive = false);
+	bool RestoreScene(class KScene& scene);
 
 protected:
+	bool LoadScene(class KScene& scene);
+	bool UnloadScene();
+
 	std::wstring Title = L"";
+
+	class KScene* Scene = nullptr;
 };

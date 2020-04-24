@@ -5,6 +5,16 @@
 
 #include "Engine.h"
 
+void KEngine::PreInitialize()
+{
+	Renderer = new KRenderer();
+
+	if (GameInstance != nullptr)
+	{
+		GameInstance->InitializeDefaultScene(this);
+	}
+}
+
 bool KEngine::Initialize()
 {
 	begin_time = clock();
@@ -12,11 +22,9 @@ bool KEngine::Initialize()
 	RECT ConsoleRect;
 	HWND console = GetConsoleWindow();
 	GetWindowRect(console, &ConsoleRect);
-	MoveWindow(console, ConsoleRect.left, ConsoleRect.top, 680, 535, TRUE);
+	MoveWindow(console, ConsoleRect.left, ConsoleRect.top, 800, 600, TRUE);
 
 	HideCursor();
-
-	Renderer = new KRenderer();
 
 	return true;
 }
@@ -39,7 +47,7 @@ void setCursorPosition(int x, int y)
 	SetConsoleCursorPosition(hOut, coord);
 }
 
-void KEngine::UpdateTitle(float deltaTime, float fps)
+void KEngine::UpdateTitle(const float deltaTime, const float fps)
 {
 	//Move to OS module
 	std::wstring windowTitle;
@@ -95,7 +103,7 @@ int KEngine::Loop()
 	return 0;
 }
 
-void KEngine::BeginScene(float deltaTime, float fps)
+void KEngine::BeginScene(const float deltaTime, const float fps)
 {
 	UpdateTitle(deltaTime, fps);
 	HideCursor();
@@ -109,7 +117,7 @@ void KEngine::BeginScene(float deltaTime, float fps)
 	GameInstance->PreTick();
 }
 
-void KEngine::UpdateScene(float deltaTime, float fps)
+void KEngine::UpdateScene(const float deltaTime, const float fps)
 {
 	if (GameInstance == nullptr)
 	{
