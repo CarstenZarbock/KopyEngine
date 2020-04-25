@@ -92,6 +92,12 @@ public:
 		X = x;
 		Y = y;
 	}
+
+	void ChangeText(std::string& text)
+	{
+		delete Buffer;
+		Buffer = new FDrawBuffer(text);
+	}
 };
 
 class KRenderResourceImage : public KRenderResource
