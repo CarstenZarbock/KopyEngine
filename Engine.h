@@ -23,6 +23,8 @@ public:
 	void PreInitialize();
 	class KRenderer& GetRenderer() { return *Renderer; }
 
+	class KGameInstance& GetGameInstance() { return *GameInstance; }
+
 protected:
 	void UpdateTitle(const float deltaTime, const float fps);
 	

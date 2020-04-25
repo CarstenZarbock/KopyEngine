@@ -17,7 +17,7 @@ void KRenderer::Update()
 	for (KRenderResource* res : Resources)
 	{
 		FDrawBuffer& buffer = res->GetDrawBuffer();
-		DrawToBackbuffer(buffer, static_cast<int>(res->GetX()), static_cast<int>(res->GetY()));
+		DrawToBackbuffer(buffer, static_cast<int>(res->GetRenderX()), static_cast<int>(res->GetRenderY()));
 	}   
 }
 
@@ -68,9 +68,9 @@ void KRenderer::DrawToBackbuffer(FDrawBuffer& buffer, int x, int y)
 	size_t curOffset = 0;
 	for (int curBuffer = 0; curBuffer < buffer.BufferNum; ++curBuffer)
 	{
-		int bufY = y + curBuffer;
+		int bufferY = y + curBuffer;
 
-		if (bufY >= MAX_Y || bufY < 0 || x >= MAX_X)
+		if (bufferY >= MAX_Y || bufferY < 0 || x >= MAX_X)
 		{
 			curOffset += buffer.BufferSizes[curBuffer];
 			continue;
@@ -85,24 +85,23 @@ void KRenderer::DrawToBackbuffer(FDrawBuffer& buffer, int x, int y)
 			}
 		}
 
-		char* dest;
-		dest = (char*)(DWORD)(backBuffer);
-		dest += (bufY * MAX_X);
+		char* dest = static_cast<char*>(backBuffer);
+		dest += bufferY * static_cast<int>(MAX_X);
 		dest += std::min<int>(MAX_X, std::max<int>(x, 0));
 
 		const void* source = nullptr;
-		char* temp = nullptr;
+		char* tempBuffer = nullptr;
 		if (x >= 0)
 		{
-			temp = new char[buffer.BufferSizes[curBuffer]];
-			std::memcpy(temp, buffer.Buffer + curOffset, buffer.BufferSizes[curBuffer]);
-			source = static_cast<const void*>(temp);
+			tempBuffer = new char[buffer.BufferSizes[curBuffer]];
+			std::memcpy(tempBuffer, buffer.Buffer + curOffset, buffer.BufferSizes[curBuffer]);
+			source = static_cast<const void*>(tempBuffer);
 		}
 		else
 		{
-			temp = new char[buffer.BufferSizes[curBuffer]];
-			std::memcpy(temp, buffer.Buffer + curOffset + (x * -1), buffer.BufferSizes[curBuffer] + x);
-			source = static_cast<const void*>(temp);
+			tempBuffer = new char[buffer.BufferSizes[curBuffer]];
+			std::memcpy(tempBuffer, buffer.Buffer + curOffset + (x * -1), buffer.BufferSizes[curBuffer] + x);
+			source = static_cast<const void*>(tempBuffer);
 		}
 
 		size_t size;
@@ -115,12 +114,12 @@ void KRenderer::DrawToBackbuffer(FDrawBuffer& buffer, int x, int y)
 			size = std::min<int>(buffer.BufferSizes[curBuffer] + x, MAX_X);
 		}
 
-		if (std::memcmp(dest, source, size) != 0)
-		{
+		//if (std::memcmp(dest, source, size) != 0)
+		//{
 			std::memcpy(dest, source, size);
-		}
+		//}
 
-		delete temp;
+		delete tempBuffer;
 		curOffset += buffer.BufferSizes[curBuffer];
 	}
 

@@ -2,6 +2,13 @@
 
 #include "stdafx.h"
 
+enum class EAlignment : uint8_t
+{
+	LEFT,
+	CENTER,
+	RIGHT
+};
+
 struct FDrawBuffer
 {
 public:
@@ -71,15 +78,61 @@ public:
 	}
 
 	virtual FDrawBuffer& GetDrawBuffer() { return *Buffer; }
-	virtual const float GetX() const { return X; }
-	virtual const float GetY() const { return Y; }
-	virtual void SetLocation(float x, float y) { X = x; Y = y; }
+	virtual void SetLocation(float x, float y)
+	{
+		X = x;
+		Y = y;
+	}
+	size_t GetMaxBufferSize()
+	{
+		size_t maxSize = 0;
+		for (int i = 0; i < Buffer->BufferNum; ++i)
+		{
+			if (Buffer->BufferSizes[i] > maxSize)
+			{
+				maxSize = Buffer->BufferSizes[i];
+			}
+		}
+		return maxSize;
+	}
+
+	virtual const float GetX()
+	{
+		return X;
+	}
+
+	virtual const float GetY()
+	{
+		return Y;
+	}
+
+	virtual const float GetRenderX()
+	{
+		switch (Alignment)
+		{
+		case EAlignment::LEFT:
+			return X;
+		case EAlignment::CENTER:
+			return X - (GetMaxBufferSize() / 2.f);
+		case EAlignment::RIGHT:
+			return X - GetMaxBufferSize();
+		default:
+			return X;
+		}
+	}
+
+	virtual const float GetRenderY()
+	{
+		return Y;
+	}
 
 protected:
 	float X = 0;
 	float Y = 0;
 
 	FDrawBuffer* Buffer = nullptr;
+
+	EAlignment Alignment = EAlignment::LEFT;
 };
 
 class KRenderResourceText : public KRenderResource
@@ -91,6 +144,14 @@ public:
 		Buffer = new FDrawBuffer(text);
 		X = x;
 		Y = y;
+	}
+
+	KRenderResourceText::KRenderResourceText(std::string& text, float x, float y, EAlignment alignment)
+	{
+		Buffer = new FDrawBuffer(text);
+		X = x;
+		Y = y;
+		Alignment = alignment;
 	}
 
 	void ChangeText(std::string& text)

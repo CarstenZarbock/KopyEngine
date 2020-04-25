@@ -160,4 +160,7 @@ void KEngine::CleanUp()
 {
 	Renderer->CleanUp();
 	delete Renderer;
+	//TEMP - REMOVE #TODO
+	system("CLS");
+	//------------------
 }
