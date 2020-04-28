@@ -25,7 +25,7 @@ bool KEngine::Initialize()
 	RECT ConsoleRect;
 	HWND console = GetConsoleWindow();
 	GetWindowRect(console, &ConsoleRect);
-	MoveWindow(console, ConsoleRect.left, ConsoleRect.top, 800, 600, TRUE);
+	MoveWindow(console, ConsoleRect.left, ConsoleRect.top, 680, 535, TRUE);
 
 	HideCursor();
 

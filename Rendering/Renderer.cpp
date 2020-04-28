@@ -44,6 +44,8 @@ void KRenderer::Draw()
 	
 	std::cout.write(&gBuffer[0], (MAX_X * MAX_Y) + MAX_Y);
 	std::cout.flush();
+	std::memset((char*)gBuffer, 0, (MAX_X * MAX_Y) + MAX_Y);
+	std::memset((char*)frontBuffer, 0, MAX_X * MAX_Y);
 }
 
 void KRenderer::RegisterComponent(KRenderResource* resource)
