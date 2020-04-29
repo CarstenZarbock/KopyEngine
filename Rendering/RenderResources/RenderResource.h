@@ -29,8 +29,11 @@ public:
 		std::memcpy(Buffer, textSource.c_str(), BufferSizes[0]);
 	}
 
-	FDrawBuffer(std::vector<std::string>& vecStrSource)
+	FDrawBuffer(std::vector<std::string>& vecStrSource, bool useAlpha = false, char alphaChar = char(' '))
 	{
+		UseAlpha = useAlpha;
+		AlphaChar = alphaChar;
+
 		BufferNum = vecStrSource.size();
 		BufferSizes = new size_t[BufferNum];
 
@@ -66,6 +69,8 @@ public:
 	char* Buffer = nullptr;
 	int BufferNum = 0;
 	size_t* BufferSizes = nullptr;
+	bool UseAlpha = false;
+	char AlphaChar = char(' ');
 };
 
 class KRenderResource
@@ -165,9 +170,9 @@ class KRenderResourceImage : public KRenderResource
 {
 public:
 	KRenderResourceImage::KRenderResourceImage() = default;
-	KRenderResourceImage::KRenderResourceImage(std::vector<std::string> vecBuffer, float x, float y)
+	KRenderResourceImage::KRenderResourceImage(std::vector<std::string> vecBuffer, float x, float y, bool useAlpha = false, char alphaChar = char(' '))
 	{
-		Buffer = new FDrawBuffer(vecBuffer);
+		Buffer = new FDrawBuffer(vecBuffer, useAlpha, alphaChar);
 		X = x;
 		Y = y;
 	}

@@ -91,19 +91,19 @@ void KRenderer::DrawToBackbuffer(FDrawBuffer& buffer, int x, int y)
 		dest += bufferY * static_cast<int>(MAX_X);
 		dest += std::min<int>(MAX_X, std::max<int>(x, 0));
 
-		const void* source = nullptr;
+		char* source = nullptr;
 		char* tempBuffer = nullptr;
 		if (x >= 0)
 		{
 			tempBuffer = new char[buffer.BufferSizes[curBuffer]];
 			std::memcpy(tempBuffer, buffer.Buffer + curOffset, buffer.BufferSizes[curBuffer]);
-			source = static_cast<const void*>(tempBuffer);
+			source = static_cast<char*>(tempBuffer);
 		}
 		else
 		{
 			tempBuffer = new char[buffer.BufferSizes[curBuffer]];
 			std::memcpy(tempBuffer, buffer.Buffer + curOffset + (x * -1), buffer.BufferSizes[curBuffer] + x);
-			source = static_cast<const void*>(tempBuffer);
+			source = static_cast<char*>(tempBuffer);
 		}
 
 		size_t size;
@@ -116,10 +116,25 @@ void KRenderer::DrawToBackbuffer(FDrawBuffer& buffer, int x, int y)
 			size = std::min<int>(buffer.BufferSizes[curBuffer] + x, MAX_X);
 		}
 
-		//if (std::memcmp(dest, source, size) != 0)
-		//{
+		if (buffer.UseAlpha == false)
+		{
 			std::memcpy(dest, source, size);
-		//}
+		}
+		else
+		{
+			for (int idx = 0; idx < size; ++idx)
+			{
+				if (std::memcmp(source + idx, &buffer.AlphaChar, sizeof(char)) != 0)
+				{
+					std::memcpy(dest + idx, source + idx, sizeof(char));
+				}
+				//else
+				//{
+				//	static char bla = 'X';
+				//	std::memcpy(dest + idx, &bla, sizeof(char));
+				//}
+			}
+		}
 
 		delete tempBuffer;
 		curOffset += buffer.BufferSizes[curBuffer];
